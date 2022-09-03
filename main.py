@@ -1,4 +1,5 @@
 import csv
+import json
 
 # Reading variables
 fieldnames = ['id', 'track_name', 'price', 'prime_genre']
@@ -12,3 +13,19 @@ with open('AppleStore.csv', encoding="utf8") as f:
         # Print list specified by columns
         print(
             f"{row['id']} | {row['track_name']} | {row['price']} | {row['prime_genre']}")
+
+# Reading variables json
+track_name = []
+
+# reading json file
+f = open('applestore.json',)
+data = json.load(f)
+
+# Make a loop in the specified column
+for i in data:
+    track_name.append(tuple(i.values()))
+
+f.close()
+# Print specified by columns
+print(track_name)
+
